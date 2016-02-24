@@ -114,14 +114,14 @@ int main(){
 			printf("Y: ");
 			int is_a_number1 = scanf_s("%d", &attack_y);
 			getchar();
-			if (is_a_number1 != 1){
+			if (is_a_number1 != 1){ //Check if the input is a number
 				printf("\nNot a number!\n");
 				continue;
 			}
 			printf("X: ");
 			int is_a_number2 = scanf_s("%d", &attack_x);
 			getchar();
-			if (is_a_number2 != 1){
+			if (is_a_number2 != 1){ //Check if the input is a number
 				printf("\nNot a number!\n");
 				continue;
 			}

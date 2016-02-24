@@ -185,7 +185,7 @@ int main(){
 				}
 			}
 		}
-		printf("\n Want to play again? (y/n)");
+		printf("\nWant to play again?(y/n): ");
 		if (getchar() == 'n'){
 			return 0;
 		}

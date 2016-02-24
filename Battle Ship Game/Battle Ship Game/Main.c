@@ -37,7 +37,7 @@ int main(){
 		{ ' ', ' ', '9', ' ', '~', '~', '~', '~', '~', '~', '~', '~', '~', '~' } };
 
 	do{
-		//a ship
+		//a ship in random position
 		int boat_x = rand() % 14 + 4;
 		int boat_y = rand() % 12 + 2;
 		if (board[boat_y][boat_x] == '~'){
@@ -47,7 +47,7 @@ int main(){
 	} while (1);
 
 	do{
-		//b ship
+		//b ship in random position
 		int boat_x = rand() % 13 + 4;
 		int boat_y = rand() % 12 + 2;
 		if (board[boat_y][boat_x] == '~' && board[boat_y][boat_x + 1] == '~'){
@@ -58,7 +58,7 @@ int main(){
 	} while (1);
 
 	do{
-		//c ship
+		//c ship in random position
 		int boat_x = rand() % 14 + 4;
 		int boat_y = rand() % 9 + 2;
 		if (board[boat_y][boat_x] == '~' && board[boat_y + 1][boat_x] == '~' && board[boat_y + 2][boat_x] == '~'){
@@ -70,7 +70,7 @@ int main(){
 	} while (1);
 
 	do{
-		//d ship
+		//d ship in random position
 		int boat_x = rand() % 10 + 4;
 		int boat_y = rand() % 12 + 2;
 		if (board[boat_y][boat_x] == '~' && board[boat_y][boat_x + 1] == '~' && board[boat_y][boat_x + 2] == '~' && board[boat_y][boat_x + 3] == '~'){
@@ -83,10 +83,10 @@ int main(){
 	} while (1);
 
 	int moves = 0;
-	int a_ship_parts = 1;
-	int b_ship_parts = 2;
-	int c_ship_parts = 3;
-	int d_ship_parts = 4;
+	int a_ship_remaining_hits = 1;
+	int b_ship_remaining_hits = 2;
+	int c_ship_remaining_hits = 3;
+	int d_ship_remaining_hits = 4;
 
 	while (1){
 		int attack_y;
@@ -95,7 +95,7 @@ int main(){
 
 		printf("\n-------------------- Moves: %d \n", moves++);
 
-		for (int i = 0; i < 12; i++){
+		for (int i = 0; i < 12; i++){   //Draw game map every turn
 			for (int j = 0; j < 14; j++){
 				printf("%c", *p);
 				p++;
@@ -103,10 +103,10 @@ int main(){
 			printf("\n");
 		}
 
-		if (a_ship_parts <= 0 && b_ship_parts <= 0 && c_ship_parts <= 0 && d_ship_parts <= 0){
+		if (a_ship_remaining_hits <= 0 && b_ship_remaining_hits <= 0 && c_ship_remaining_hits <= 0 && d_ship_remaining_hits <= 0){
 			printf("\nYou have destroyed all the ships using %d moves! You won!\n", moves);
 			break;
-		}
+		} 
 
 		printf("\nWhere you want to attack?\n");
 		printf("Y: ");
@@ -133,8 +133,8 @@ int main(){
 				board_view[attack_y + 2][attack_x + 4] = board[attack_y + 2][attack_x + 4];
 				switch (board_view[attack_y + 2][attack_x + 4]){
 				case 'a':
-					a_ship_parts--;
-					if (a_ship_parts == 0){
+					a_ship_remaining_hits--;
+					if (a_ship_remaining_hits == 0){
 						printf("\nYou destroyed ship a!\n");
 					}
 					else{
@@ -142,8 +142,8 @@ int main(){
 					}
 					break;
 				case 'b':
-					b_ship_parts--;
-					if (b_ship_parts == 0){
+					b_ship_remaining_hits--;
+					if (b_ship_remaining_hits == 0){
 						printf("\nYou destroyed ship b!\n");
 					}
 					else{
@@ -151,8 +151,8 @@ int main(){
 					}
 					break;
 				case 'c':
-					c_ship_parts--;
-					if (c_ship_parts == 0){
+					c_ship_remaining_hits--;
+					if (c_ship_remaining_hits == 0){
 						printf("\nYou destroyed ship c!\n");
 					}
 					else{
@@ -160,8 +160,8 @@ int main(){
 					}
 					break;
 				case 'd':
-					d_ship_parts--;
-					if (d_ship_parts == 0){
+					d_ship_remaining_hits--;
+					if (d_ship_remaining_hits == 0){
 						printf("\nYou destroyed ship d!\n");
 					}
 					else{

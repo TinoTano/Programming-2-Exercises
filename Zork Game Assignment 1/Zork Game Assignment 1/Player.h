@@ -2,12 +2,15 @@
 #define _Player_
 
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
 class Player{
+	
 public:
-	void player(string name, string description);
+	string name;
+	string gang_side;
 };
 
 #endif 

@@ -2,12 +2,19 @@
 #define _ROOMS_
 
 #include <iostream>
+#include "Globals.h"
 
 using namespace std;
 
 class Rooms{
+
 public:
-	void room(string name, string description);
+	
+	string name;
+	string description;
+	int actual_room;
+	bool closed;
+	void Room_info(areas area);
 
 };
 

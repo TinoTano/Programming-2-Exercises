@@ -3,8 +3,6 @@
 #include "Hero.h"
 #include "Troll.h"
 
-#define NUM_CREATURES 3
-
 using namespace std;
 
 int main(){
@@ -17,9 +15,7 @@ int main(){
 	hero.creature_info(250, "Hero");
 	troll.creature_info(300, "Troll");
 
-	for (int i = 0; i < NUM_CREATURES; i++){
-
-	}
+	goblin.creature_hp(hero.atk_pow);
 
 	getchar();
 	return 0;

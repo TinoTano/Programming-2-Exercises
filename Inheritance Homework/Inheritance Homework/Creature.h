@@ -17,9 +17,6 @@ public:
 		cout << creature_name << " have " << creature_hp << "HP" << endl;
 	};
 
-	int Battle_result(int creature1_hp, int creature2_attack_power){
-		return creature1_hp - creature2_attack_power;
-	}
 };
 
 #endif

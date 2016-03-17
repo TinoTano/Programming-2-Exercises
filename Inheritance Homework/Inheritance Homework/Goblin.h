@@ -8,8 +8,9 @@ public:
 	int atk_pow = 50;
 	int atk_speed = 3;
 
-	int creature_hp(int enemy_attack_power) {
-		return hp - enemy_attack_power;
+	void creature_hp(int enemy_attack_power) {
+		hp = hp - enemy_attack_power;
+		cout << hp << endl;
 	}
 };
 
